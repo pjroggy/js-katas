@@ -30,11 +30,79 @@ Add you own tests.
 
 // TODO add your code here
 
+/*
+Etape 1: Lister le nombre de 1 et de 2
+Etape 2: Comparer ces valeurs
+Etape 3: En fonction de la comparaison, afficher un des 4 résult
+
+=================================================
+
+Etape 0: Créer une fonction, qui prend un tableau de nombres en paramètres, et retourne une valeur en chaîne de caractère ✅
+Etape 1: Créer 3 variables, une pour stocker le nombre de points de chaque joueur, et une pour le résultat. ✅
+Etape 2: Boucler sur le tableau pour lire les données, et trier donc les données de ce tableau, en attribuant les valeurs correspondantes dans les différentes variables. ✅
+Etape 3: Transforme le nombre de points suivant la notation des règles du tennis, tant qu'on est pas à plus de 3 points. ✅
+Etape 4: Comparer les résultats des 2 joueurs
+Etape 5: Afficher différents résultats en fonction de cette comparaison et en suivant les règles du tennis.
+*/
+
+function getScore (array) {
+   let scorePlayerOne = 0;
+   let scorePlayerTwo = 0;
+   let result;
+
+   for (let i = 0; i < array.length; i++) {
+      if(array[i] === 1) {
+         scorePlayerOne += 1;
+      } else {
+         scorePlayerTwo += 1;
+      }
+   }
+   scorePlayerOne = scorePlayer(scorePlayerOne);
+   scorePlayerTwo = scorePlayer(scorePlayerTwo);
+
+   if (scorePlayerOne === scorePlayerTwo) {
+      result = "deuce";
+   } else if(scorePlayerOne === "ad in" || scorePlayerTwo === "ad in") {
+      result = "ad in";
+   } else {
+      result = `${scorePlayerOne}-${scorePlayerTwo}`;
+   }
+   return result
+}
+
+function scorePlayer (score) {
+   if(score === 1) {
+      score = 15;
+   } else if (score === 2) {
+      score = 30;
+   } else if (score === 3) {
+      score = 40;
+   } else if (score > 3) {
+      score = "ad in";
+   } else {
+      score = "love";
+   }
+   return score;
+}
+
+console.log(getScore([1, 1, 1, 2, 2, 2, 1]));
+
+
+
+
+
+
+
+
+
+
+
 // Begin of tests
 const assert = require("assert");
 
 assert.strictEqual(typeof getScore, "function");
 assert.strictEqual(getScore.length, 1);
 // TODO add your tests:
+assert
 
 // End of tests
