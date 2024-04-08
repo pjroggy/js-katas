@@ -27,7 +27,11 @@ Don't mutate the parameter.
 */
 
 // TODO add your code here
-
+function censor(sentences){
+  return sentences.map(sentence => {
+    return sentence.replace("tacos", match => '*'.repeat(match.length)); 
+});
+}
 // Begin of tests
 const assert = require("assert");
 
